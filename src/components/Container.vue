@@ -20,7 +20,6 @@ const cards = [
     socialName: "facebook",
     quantity: "1987",
     quantityText: "Followers",
-    iconUrl: "/src/assets/icon-facebook.svg",
     brandColor: "#198ff5",
     statistic: 12,
   },
@@ -30,7 +29,6 @@ const cards = [
     socialName: "twitter",
     quantity: "1044",
     quantityText: "Followers",
-    iconUrl: "/src/assets/icon-twitter.svg",
     brandColor: "#1ca0f2",
     statistic: 99,
   },
@@ -40,7 +38,6 @@ const cards = [
     socialName: "instagram",
     quantity: "11k",
     quantityText: "Followers",
-    iconUrl: "/src/assets/icon-instagram.svg",
     brandColor: "linear-gradient(to right, #fdc468, #df4996)",
     statistic: 1099,
   },
@@ -50,7 +47,6 @@ const cards = [
     socialName: "youtube",
     quantity: "8239",
     quantityText: "Subscribers",
-    iconUrl: "/src/assets/icon-youtube.svg",
     brandColor: "#c4032a",
     statistic: -144,
   },
@@ -61,71 +57,72 @@ const overview = [
     id: 1,
     measureText: "Page View",
     quantity: "87",
-    iconUrl: "/src/assets/icon-facebook.svg",
+    socialName: "facebook",
     statistic: 3,
   },
   {
     id: 2,
     measureText: "Likes",
     quantity: "52",
-    iconUrl: "/src/assets/icon-facebook.svg",
+    socialName: "facebook",
     statistic: -2,
   },
   {
     id: 3,
     measureText: "Likes",
     quantity: "5462",
-    iconUrl: "/src/assets/icon-instagram.svg",
+    socialName: "instagram",
     statistic: 2257,
   },
   {
     id: 4,
     measureText: "Profile Views",
     quantity: "52k",
-    iconUrl: "/src/assets/icon-instagram.svg",
+    socialName: "instagram",
     statistic: 1375,
   },
   {
     id: 5,
     measureText: "Retweets",
     quantity: "117",
-    iconUrl: "/src/assets/icon-twitter.svg",
+    socialName: "twitter",
     statistic: 303,
   },
   {
     id: 6,
     measureText: "Likes",
     quantity: "507",
-    iconUrl: "/src/assets/icon-twitter.svg",
+    socialName: "twitter",
     statistic: 553,
   },
   {
     id: 7,
     measureText: "Likes",
     quantity: "107",
-    iconUrl: "/src/assets/icon-youtube.svg",
+    socialName: "youtube",
     statistic: -19,
   },
   {
     id: 8,
     measureText: "Total Views",
     quantity: "1407",
-    iconUrl: "/src/assets/icon-youtube.svg",
+    socialName: "youtube",
     statistic: -12,
   },
 ];
 </script>
 
 <template>
+  <div class="background-detail"></div>
   <header>
     <div class="header__title">
       <span>Social Media Dashboard</span>
-      <span>Total Followers: 23,004</span>
+      <span class="text">Total Followers: 23,004</span>
     </div>
     <hr class="divider" />
 
     <div class="header__switcher">
-      <span>Dark Mode</span>
+      <span class="text">Dark Mode</span>
       <Slider
         @change="handleChangeTheme"
         :initialValue="prefersDarkScheme.matches"
@@ -140,9 +137,9 @@ const overview = [
         :quantity="card.quantity"
         :quantityText="card.quantityText"
         :author="card.author"
-        :iconUrl="card.iconUrl"
         :brandColor="card.brandColor"
         :statistic="card.statistic"
+        :socialName="card.socialName"
       />
     </div>
   </section>
@@ -154,8 +151,8 @@ const overview = [
         :key="card.id"
         :measureText="card.measureText"
         :quantity="card.quantity"
-        :iconUrl="card.iconUrl"
         :statistic="card.statistic"
+        :socialName="card.socialName"
       />
     </div>
   </section>
@@ -204,11 +201,44 @@ header {
 
 .cards {
   display: grid;
+  grid: auto-flow / repeat(auto-fill, min(335px));
   justify-content: center;
   gap: 20px;
 }
 
 .section-overview h1 {
   font-size: 24px;
+}
+
+section {
+  margin: 40px 0;
+}
+
+@media (min-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  .background-detail {
+    background: var(--color-backgroundDetail);
+    width: 100vw;
+    height: 200px;
+    border-radius: 0 0 20px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .header__switcher {
+    gap: 20px;
+  }
 }
 </style>

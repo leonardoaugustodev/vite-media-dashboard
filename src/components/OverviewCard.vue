@@ -6,12 +6,13 @@ const props = defineProps({
   quantity: String,
   iconUrl: String,
   statistic: Number,
+  socialName: String
 });
 
 const statisticIcon = computed(() => {
   const iconName = props.statistic > 0 ? "up" : "down";
 
-  return `/src/assets/icon-${iconName}.svg`;
+  return `/icon-${iconName}.svg`;
 });
 
 const statisticTextColor = computed(() => {
@@ -19,16 +20,21 @@ const statisticTextColor = computed(() => {
     ? "var(--color-primary-limeGreen)"
     : "var(--color-primary-brightRed)";
 });
+
+const getImg = (brand) => {
+  return `/icon-${brand}.svg`;
+};
+
 </script>
 
 <template>
   <div class="overview-card">
     <div class="info">
-      <div>{{ measureText }}</div>
+      <div class="text">{{ measureText }}</div>
       <div>{{ quantity }}</div>
     </div>
     <div class="statistics">
-      <img :src="iconUrl" />
+      <img :src="getImg(socialName)" />
       <div>
         <img :src="statisticIcon" alt="icon-up" />
         <span :style="{ color: statisticTextColor }">{{ statistic }}%</span>
@@ -49,6 +55,11 @@ const statisticTextColor = computed(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.overview-card:hover{
+  cursor: pointer;
+  background: var(--color-cardBGHover);
 }
 
 .overview-card .info,
@@ -85,4 +96,5 @@ const statisticTextColor = computed(() => {
 .overview-card .info div:nth-child(2) {
   font-size: 32px;
 }
+
 </style>

@@ -6,8 +6,10 @@
 @media (prefers-color-scheme: dark) {
   body {
     --color-background: hsl(230, 17%, 14%);
+    --color-backgroundDetail: #20222f;
     --color-topBGPattern: hsl(232, 19%, 15%);
     --color-cardBG: hsl(228, 28%, 20%);
+    --color-cardBGHover: #333a56;
     --color-text: hsl(228, 34%, 66%);
     --color-primary-text: hsl(0, 0%, 100%);
 
@@ -21,8 +23,10 @@
 
   body.light-theme {
     --color-background: hsl(0, 0%, 100%);
+    --color-backgroundDetail: #f8f9fe;
     --color-topBGPattern: hsl(225, 100%, 98%);
     --color-cardBG: hsl(227, 47%, 96%);
+    --color-cardBGHover: #e1e3ef;
     --color-text: hsl(228, 12%, 44%);
     --color-primary-text: hsl(230, 17%, 14%);
   }
@@ -31,8 +35,11 @@
 @media (prefers-color-scheme: light) {
   body.dark-theme {
     --color-background: hsl(230, 17%, 14%);
+    --color-backgroundDetail: #20222f;
+
     --color-topBGPattern: hsl(232, 19%, 15%);
     --color-cardBG: hsl(228, 28%, 20%);
+    --color-cardBGHover: #333a56;
     --color-text: hsl(228, 34%, 66%);
     --color-primary-text: hsl(0, 0%, 100%);
   }
@@ -46,8 +53,10 @@
     --color-switcher: hsl(230, 22%, 74%);
 
     --color-background: hsl(0, 0%, 100%);
+    --color-backgroundDetail: #f8f9fe;
     --color-topBGPattern: hsl(225, 100%, 98%);
     --color-cardBG: hsl(227, 47%, 96%);
+    --color-cardBGHover: #e1e3ef;
     --color-text: hsl(228, 12%, 44%);
     --color-primary-text: hsl(230, 17%, 14%);
   }

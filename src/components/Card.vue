@@ -8,12 +8,13 @@ const props = defineProps({
   iconUrl: String,
   brandColor: String,
   statistic: Number,
+  socialName: String
 });
 
 const statisticIcon = computed(() => {
   const iconName = props.statistic > 0 ? "up" : "down";
 
-  return `/src/assets/icon-${iconName}.svg`;
+  return `/icon-${iconName}.svg`;
 });
 
 const statisticTextColor = computed(() => {
@@ -26,18 +27,21 @@ const borderTopColorVars = computed(() => {
   return { "--borderColor": props.brandColor };
 });
 
-console.log(statisticIcon.value);
+const getImg = (brand) => {
+  return `/icon-${brand}.svg`;
+};
+
 </script>
 
 <template>
   <div class="card" :style="borderTopColorVars">
     <div class="card__author">
-      <img :src="iconUrl" />
-      <span>{{ author }}</span>
+      <img :src="getImg(socialName)" />
+      <span class="text">{{ author }}</span>
     </div>
     <div class="card__content">
       <div class="card__quantity">{{ quantity }}</div>
-      <span class="">{{ quantityText }}</span>
+      <span class="text">{{ quantityText }}</span>
     </div>
     <div class="card__statistics">
       <img :src="statisticIcon" alt="icon-up" />
@@ -63,6 +67,11 @@ console.log(statisticIcon.value);
   border-radius: 4px;
 
   position: relative;
+}
+
+.card:hover {
+  cursor: pointer;
+  background: var(--color-cardBGHover);
 }
 
 .card::before {
@@ -100,10 +109,8 @@ console.log(statisticIcon.value);
 }
 
 .card__content span {
-  font-size: 14px;
-  letter-spacing: 3px;
-}
-
-.social-facebook {
+  font-size: 12px;
+  letter-spacing: 4px;
+  /* font-weight: 200; */
 }
 </style>
