@@ -13,7 +13,7 @@ export default {
 
 <template>
   <label class="switch">
-    <input type="checkbox" @change.stop="handleChange" :checked="initialValue"/>
+    <input type="checkbox" @change.stop="handleChange" :checked="initialValue" aria-label="Dark theme switcher"/>
     <div class="slider round" />
   </label>
 </template>

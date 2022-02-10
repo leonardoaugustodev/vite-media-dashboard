@@ -36,7 +36,7 @@ const getImg = (brand) => {
 <template>
   <div class="card" :style="borderTopColorVars">
     <div class="card__author">
-      <img :src="getImg(socialName)" />
+      <img :src="getImg(socialName)" :alt="${socialName} icon"/>
       <span class="text">{{ author }}</span>
     </div>
     <div class="card__content">
@@ -44,7 +44,7 @@ const getImg = (brand) => {
       <span class="text">{{ quantityText }}</span>
     </div>
     <div class="card__statistics">
-      <img :src="statisticIcon" alt="icon-up" />
+      <img :src="statisticIcon" alt="statistic icon" />
       <span :style="{ color: statisticTextColor }">{{ statistic }} Today</span>
     </div>
   </div>
