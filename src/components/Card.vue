@@ -36,7 +36,7 @@ const getImg = (brand) => {
 <template>
   <div class="card" :style="borderTopColorVars">
     <div class="card__author">
-      <img :src="getImg(socialName)" :alt="${socialName} icon"/>
+      <img :src="getImg(socialName)" :alt="`${socialName} icon`"/>
       <span class="text">{{ author }}</span>
     </div>
     <div class="card__content">
