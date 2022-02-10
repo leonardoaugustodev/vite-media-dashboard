@@ -34,7 +34,7 @@ const getImg = (brand) => {
       <div>{{ quantity }}</div>
     </div>
     <div class="statistics">
-      <img :src="getImg(socialName)" />
+      <img :src="getImg(socialName)" :alt="`${socialName} icon`" />
       <div>
         <img :src="statisticIcon" alt="icon-up" />
         <span :style="{ color: statisticTextColor }">{{ statistic }}%</span>
