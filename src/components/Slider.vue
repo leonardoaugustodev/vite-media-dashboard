@@ -1,14 +1,15 @@
-<script>
-export default {
-  props: {
-    initialValue: Boolean
-  },
-  methods: {
-    handleChange(e) {
-      this.$emit('change', e.target.checked);
-    },
-  },
-};
+<script setup>
+
+const emit = defineEmits(['change']);
+
+const props = defineProps({
+  initialValue: Boolean
+});
+
+const handleChange = (e) => {
+  emit('change', e.target.checked);
+}
+
 </script>
 
 <template>

@@ -15,6 +15,7 @@ import Container from "./components/Container.vue";
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition: all 0.1s ease;
 }
 
 body {
@@ -26,18 +27,15 @@ body {
 
   display: flex;
   justify-content: center;
+  
 }
 
 #app {
   font-family: "Inter", sans-serif;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   margin: 20px;
-
   max-width: 1440px;
-
   width: 100%;
 }
 
